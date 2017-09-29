@@ -71,15 +71,6 @@ sudo easy_install pip
 sudo pip install docker-compose==1.13.0
 echo -e “*** Done with docker-compose. ***\n”
 
-
-#Pull s390x-1.0.0-rc1 fabric containers from DockerHub
-echo -e “*** Pulling s390x-1.0.0-rc1 images from DockerHub. ***\n”
-docker pull hyperledger/fabric-peer:s390x-1.0.0-rc1
-docker pull hyperledger/fabric-ca:s390x-1.0.0-rc1
-docker pull hyperledger/fabric-orderer:s390x-1.0.0-rc1
-docker pull hyperledger/fabric-couchdb:s390x-1.0.0-rc1
-echo -e “*** All fabric containers have been pulled. ***\n”
-
 #Install Hyperledger Composer Components
 echo -e “*** Installing Hyperledger Composer command line tools. ***\n”
 mkdir /data/linux1/ 
@@ -101,13 +92,8 @@ cd composer-tools/
 npm install
 cd packages/fabric-dev-servers/
 npm install
-cd fabric-scripts/hlfv1/composer/
-sed -i s/x86_64/s390x/g docker-compose.yml 
-cd /data/linux1/composer-tools/packages/fabric-dev-servers/fabric-scripts/hlfv1
-mv startFabric.sh originalStartFabric.sh
-wget https://raw.githubusercontent.com/IBM/HyperledgerFabric-on-LinuxOne/master/startFabric.sh
-chmod u+x startFabric.sh
 cd /data/linux1/composer-tools/packages/fabric-dev-servers/
+./downloadFabric.sh
 ./startFabric.sh
 ./createComposerProfile.sh
 mkdir /data/playground/
