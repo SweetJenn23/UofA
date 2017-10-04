@@ -89,6 +89,9 @@ It is broken down to the following steps:
     ![Guest is ready!](images/StartedGuest.png)
 
 16. From a terminal on your computer, navigate to the directory where you saved the SSH Key Pair, *DJBlockchain*. An example location is shown below.
+
+   * **Note:** If you're running Windows then you will need to [install PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). You will use PuTTY anywhere a terminal is used.
+
    ![Download location example.](images/DownloadDirectory.png)
 
 17. Modify the permissions of your private key by entering `chmod 600 DJBlockchain.pem`.
