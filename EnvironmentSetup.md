@@ -53,7 +53,7 @@ It is broken down to the following steps:
 
    - **Select** *Hackathon (code required)* for the type.
 
-   - Enter the event code: `ND6EKA`
+   - Enter the event code: `R25U7Z`
 
    - **Note:** Your hackathon server will be deleted 1 week after the event. General purpose servers are deleted 120 days after registration.
 
