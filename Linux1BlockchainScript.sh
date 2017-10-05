@@ -22,7 +22,7 @@ if [[ "$relog" = true ]]; then
 fi
 # Ensure /data exists
 if [[ ! -d "/data" ]]; then
-  echo "/data disk is missing. Please wait a moment and try again!"
+  echo "/data disk is missing. It could take up to 10 minutes to format and mount the /data disk. Issue 'df -h' to verify the /data disk is available before running this script again. When /data is available, please run this script again."
   exit 2
 fi
 # END Sanity checks
