@@ -1,6 +1,6 @@
 Things that are good to know for hackathons:
 
-**Run the following commands to stop the Hyperledger Fabric: **
+**Run the following commands to stop the Hyperledger Fabric:**
 
 `cd /data/linux1/composer-tools/packages/fabric-dev-servers/`
 
@@ -38,7 +38,7 @@ The PID will be the numbers before the playground name.
 
 **Places to search for coding help or error code issues:**
 
-**- **Google!!!
+**Google!!!**
 
 \- Hyperledger Composer docs: <https://hyperledger.github.io/composer/introduction/introduction.html>
 
