@@ -1,4 +1,4 @@
-#Things that are good to know for hackathons:
+# Things that are good to know for hackathons:
 
 **Export often in Hyperledger Composer to save your code to your desktop!**
 
