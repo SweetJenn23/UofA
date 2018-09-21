@@ -1,2 +1,2 @@
-# UofA
-University fo Arkansas Blockchain Codeathon
+# UofA 2018 Blockchain Hackathon
+# Hosted by the University of Arkansas Blockchain Center of Excellence
