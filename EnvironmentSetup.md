@@ -58,6 +58,8 @@ It is broken down to the following steps:
    - Enter an instance name — `DJBlockchain`
 
    - **Select** *SLES12 SP3* for the image.
+   
+   - **Select** *LinuxOne-Medium* for the flavor of Linux.
 
      ![Create your LinuxONE guest.](images/configImage.png)
 
@@ -88,7 +90,7 @@ It is broken down to the following steps:
 
 16. From a terminal on your computer, navigate to the directory where you saved the SSH Key Pair, *DJBlockchain*. An example location is shown below.
 
-   * **Note:** If you're running Windows then you will need to [install PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). You will use PuTTY anywhere a terminal is used.
+   * **Note:** If you're running Windows then you will need to [install PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). You will use PuTTY anywhere a terminal is used. Please refer to the ![Installing and Configuring PuTTY to connect to the LinuxOne Cloud from Windows.pdf]! for details on connecting with Windows to the IBM Cloud.
 
    ![Download location example.](images/DownloadDirectory.png)
 
@@ -109,7 +111,7 @@ It is broken down to the following steps:
 
 21. Now it is time to setup your guest! Run the following command, to move the setup script from the Github Repository to your Linux guest.
 
-    `wget https://raw.githubusercontent.com/IBM/HyperledgerFabric-on-LinuxOne/master/Linux1BlockchainScript.sh`
+    `wget https://raw.githubusercontent.com/zsteelman/UofA/master/Linux1BlockchainScript.sh`
 
     ![Import script.](images/WgetSetup.png)
 
