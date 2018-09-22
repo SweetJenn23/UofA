@@ -51,17 +51,15 @@ It is broken down to the following steps:
 
 9. Complete the following information:
 
-   - **Select** *Hackathon (code required)* for the type.
+   - **Select** *General Purpose VM* for the type.
 
-   - Enter the event code: `R25U7Z`
-
-   - **Note:** Your hackathon server will be deleted 1 week after the event. General purpose servers are deleted 120 days after registration.
+   - **Note:** General purpose servers are deleted 120 days after registration.
 
    - Enter an instance name — `DJBlockchain`
 
-   - **Select** *SLES12 SP2* for the image.
+   - **Select** *SLES12 SP3* for the image.
 
-     ![Create your LinuxONE guest.](images/LinuxONEFields.png)
+     ![Create your LinuxONE guest.](images/configImage.png)
 
 10. **Scroll down**. Under *Select a SSH Key Pair* **click** *create*.
 
