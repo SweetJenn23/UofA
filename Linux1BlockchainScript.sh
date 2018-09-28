@@ -59,8 +59,8 @@ IBM Master the Mainframe
 #Install NodeJS
 echo -e “*** install_nodejs ***”
 cd /tmp
-wget -q https://nodejs.org/dist/v6.9.5/node-v6.9.5-linux-s390x.tar.gz
-cd /usr/local && sudo tar --strip-components=1 -xzf /tmp/node-v6.9.5-linux-s390x.tar.gz
+wget -q https://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-s390x.tar.gz
+cd /usr/local && sudo tar --strip-components=1 -xzf /tmp/node-v8.9.4-linux-s390x.tar.gz
 echo -e “*** Done withe NodeJS ***\n”
 
 
@@ -78,30 +78,29 @@ npm config set prefix '/data/npm'
 npm config set cache /data/linux1/.npm
 export PATH=/data/npm/bin:$PATH
 cd /data/linux1/
-npm install -g composer-cli@0.13.1
+npm install -g composer-cli
 
 echo -e “*** Installing Hyperledger Composer rest server. ***\n”
-npm install -g composer-rest-server@0.13.1
+npm install -g composer-rest-server
 
 echo -e “*** Installing Hyperledger Composer playground. ***\n”
-npm install -g composer-playground@0.13.1
+npm install -g composer-playground
 
 echo -e "*** Clone and install the Coposer Tools repository.***\n"
-git clone https://github.com/hyperledger/composer-tools
-cd composer-tools/
-npm install
-cd packages/fabric-dev-servers/
-npm install
-cd /data/linux1/composer-tools/packages/fabric-dev-servers/
+mkdir ~/fabric-tools && cd ~/fabric-tools
+curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.tar.gz
+tar -xvf fabric-dev-servers.tar.gz
+export FABRIC_VERSION=hlfv12
+echo "export FABRIC_VERSION=hlfv12" >> $HOME/.profile
 ./downloadFabric.sh
 ./startFabric.sh
-./createComposerProfile.sh
+./createPeerAdminCard.sh
 mkdir /data/playground/
 nohup composer-playground >/data/playground/playground.stdout 2>/data/playground/playground.stderr & disown
 sudo iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
 sudo iptables -I INPUT 1 -p tcp --dport 3000 -j ACCEPT
 sudo iptables -I INPUT 1 -p tcp --dport 1880 -j ACCEPT
-sudo iptables-save > /etc/linuxone/iptables.save
+sudo bash -c "iptables-save > /etc/linuxone/iptables.save"
 
 #Install NodeRed
 echo -e "*** Installing NodeRed. ***\n"
@@ -109,7 +108,11 @@ npm install -g node-red
 nohup node-red >/data/playground/nodered.stdout 2>/data/playground/nodered.stderr & disown
 
 # Persist PATH setting
-echo "export PATH=/data/npm/bin:$PATH" >> $HOME/.profile
+# Check PATH for /data/npm/bin
+if ! $( echo $PATH | grep -q /data/npm/bin ); then
+  echo "export PATH=/data/npm/bin:$PATH" >> $HOME/.profile
+  echo "PATH was missing '/data/npm/bin'. This has been corrected."
+fi
 
 # Persist docker group addition
 sudo usermod -aG docker linux1
